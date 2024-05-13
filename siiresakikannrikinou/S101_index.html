@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仕入れ先登録機能</title>
+    <style>
+        form {
+            width: 50%;
+            margin: 20px auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+<h2>仕入れ先登録機能</h2>
+<form action="#" method="post">
+    <label for="supplier_id">仕入れ先 ID:</label>
+    <input type="text" id="supplier_id" name="supplier_id">
+
+    <label for="supplier_name">仕入れ先名:</label>
+    <input type="text" id="supplier_name" name="supplier_name">
+
+    <label for="supplier_address">仕入れ先住所:</label>
+    <input type="text" id="supplier_address" name="supplier_address">
+
+    <label for="supplier_phone">仕入れ先電話番号:</label>
+    <input type="text" id="supplier_phone" name="supplier_phone">
+
+    <label for="capital">資本金:</label>
+    <input type="number" id="capital" name="capital">
+
+    <label for="delivery_deadline">納期:</label>
+    <input type="text" id="delivery_deadline" name="delivery_deadline">
+
+    <input type="submit" value="登録">
+</form>
+<!-- エラーメッセージ表示部分 -->
+<div class="error">
+    <!-- エラーメッセージはここに表示 -->
+</div>
+</body>
+</html>

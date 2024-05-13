@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仕入れ先一覧表示機能</title>
+    <style>
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h2>仕入れ先一覧</h2>
+<table>
+    <thead>
+    <tr>
+        <th>仕入れ先ID</th>
+        <th>仕入れ先名</th>
+        <th>住所</th>
+        <th>電話番号</th>
+        <th>資本金</th>
+        <th>納期</th>
+        <th>電話番号変更</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- ここに仕入れ先情報を表示する -->
+    <tr>
+        <td>1</td>
+        <td>仕入先A</td>
+        <td>東京都渋谷区</td>
+        <td>012-345-6789</td>
+        <td>1000000</td>
+        <td>2024-06-01</td>
+        <td><button>変更</button></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>仕入先B</td>
+        <td>大阪府大阪市</td>
+        <td>098-765-4321</td>
+        <td>800000</td>
+        <td>2024-05-15</td>
+        <td><button>変更</button></td>
+    </tr>
+    <!-- ここに他の仕入れ先情報を追加する -->
+    </tbody>
+</table>
+</body>
+</html>

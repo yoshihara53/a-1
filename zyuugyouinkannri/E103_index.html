@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パスワード変更</title>
+    <style>
+        /* CSSスタイルをここに追加 */
+        .error-message {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<h2>管理者表パスワード変更</h2>
+<form id="change-password-form" action="change_password.php" method="post">
+    <div>
+        <label for="new-password">新しいパスワード:</label>
+        <input type="password" id="new-password" name="new-password" required>
+    </div>
+    <div>
+        <label for="confirm-password">新しいパスワード（再入力）:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+    </div>
+    <button type="submit">変更</button>
+</form>
+
+<script>
+    // JavaScriptでパスワード一致チェックを行う
+    document.getElementById('change-password-form').addEventListener('submit', function(event) {
+        var newPassword = document.getElementById('new-password').value;
+        var confirmPassword = document.getElementById('confirm-password').value;
+        if (newPassword !== confirmPassword) {
+            event.preventDefault();
+            alert('新しいパスワードが一致しません。もう一度入力してください。');
+        }
+    });
+</script>
+</body>
+</html>

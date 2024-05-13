@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>他病院登録機能</title>
+    <style>
+        form {
+            width: 50%;
+            margin: 20px auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+<h2>他病院登録機能</h2>
+<form action="#" method="post">
+    <label for="hospital_id">他病院ID</label>
+    <input type="text" id="hospital_id" name="hospital_id">
+
+    <label for="hospital_name">他病院名</label>
+    <input type="text" id="hospital_name" name="hospital_name">
+
+    <label for="hospital_address">他病院住所</label>
+    <input type="text" id="hospital_address" name="hospital_address">
+
+    <label for="hospital_phone">他病院電話番号</label>
+    <input type="text" id="hospital_phone" name="hospital_phone">
+
+    <label for="capital">資本金</label>
+    <input type="number" id="capital" name="capital">
+
+    <label for="emergency_response">救急対応</label>
+    <select id="emergency_response" name="emergency_response">
+        <option value="yes">はい</option>
+        <option value="no">いいえ</option>
+    </select>
+
+    <input type="submit" value="登録">
+</form>
+<!-- エラーメッセージ表示部分 -->
+<div class="error">
+    <!-- エラーメッセージはここに表示 -->
+</div>
+</body>
+</html>

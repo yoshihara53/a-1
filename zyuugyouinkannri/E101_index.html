@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>従業員登録</title>
+    <style>
+        /* CSSスタイルをここに追加 */
+        .error-message {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<h2>従業員登録</h2>
+<form id="registration-form" action="registration.php" method="post">
+    <div>
+        <label for="username">ユーザーID:</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+    <div>
+        <label for="lastname">姓:</label>
+        <input type="text" id="lastname" name="lastname" required>
+    </div>
+    <div>
+        <label for="firstname">名:</label>
+        <input type="text" id="firstname" name="firstname" required>
+    </div>
+    <div>
+        <label for="password1">パスワード:</label>
+        <input type="password" id="password1" name="password1" required>
+    </div>
+    <div>
+        <label for="password2">パスワード（再入力）:</label>
+        <input type="password" id="password2" name="password2" required>
+    </div>
+    <div>
+        <label for="role">ロール:</label>
+        <select id="role" name="role" required>
+            <option value="">選択してください</option>
+            <option value="admin">管理者</option>
+            <option value="employee">従業員</option>
+        </select>
+    </div>
+    <button type="submit">登録</button>
+</form>
+
+<script>
+    // JavaScriptでパスワード一致チェックを行う
+    document.getElementById('registration-form').addEventListener('submit', function(event) {
+        var password1 = document.getElementById('password1').value;
+        var password2 = document.getElementById('password2').value;
+        if (password1 !== password2) {
+            event.preventDefault();
+            alert('パスワードが一致しません。もう一度入力してください。');
+        }
+    });
+</script>
+</body>
+</html>

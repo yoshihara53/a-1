@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>従業員更新</title>
+    <style>
+        /* CSSスタイルをここに追加 */
+        .error-message {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<h2>従業員更新</h2>
+<form id="update-form" action="update_employee.php" method="post">
+    <div>
+        <label for="employee-id">ユーザーID:</label>
+        <input type="text" id="employee-id" name="employee-id" required>
+        <button type="button" onclick="searchEmployee()">検索</button>
+    </div>
+    <div id="search-result" style="display: none;">
+        <label for="lastname">姓:</label>
+        <input type="text" id="lastname" name="lastname" required><br>
+        <label for="firstname">名:</label>
+        <input type="text" id="firstname" name="firstname" required><br>
+        <button type="submit">変更確認</button>
+    </div>
+</form>
+
+<script>
+    // JavaScriptで従業員を検索する関数
+    function searchEmployee() {
+        var employeeId = document.getElementById('employee-id').value;
+        // ここでサーバーサイドに対して検索リクエストを送信する
+        // 検索結果がある場合は姓と名を表示し、ない場合はエラーメッセージを表示する
+        var found = true; // 仮の値、実際の検索結果に基づいて設定する
+        if (found) {
+            document.getElementById('search-result').style.display = 'block';
+        } else {
+            alert('従業員が見つかりません。正しいユーザーIDを入力してください。');
+        }
+    }
+</script>
+</body>
+</html>

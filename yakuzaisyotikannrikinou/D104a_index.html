@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>処置履歴確認</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            width: 30%;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 4px;
+        }
+        input[type="submit"]:hover {
+            background-color: #388e3c;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+<h2>処置履歴確認</h2>
+<form action="#" method="post" id="history-form">
+    <label for="patient-id">患者ID：</label>
+    <input type="text" id="patient-id" name="patient-id" required>
+    <input type="submit" value="患者IDを指定する">
+    <!-- 処置履歴表示領域 -->
+    <div id="history-container">
+        <!-- 処置履歴が表示される場所 -->
+        <!-- 処置履歴がない場合のメッセージ -->
+        <p>処置履歴がありません。</p>
+    </div>
+    <div class="button-group">
+        <input type="submit" value="メニューに戻る">
+    </div>
+</form>
+</body>
+</html>

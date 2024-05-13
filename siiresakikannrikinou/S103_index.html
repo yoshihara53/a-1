@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>他住所→仕入れ先検索機能</title>
+    <style>
+        form {
+            width: 50%;
+            margin: 20px auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<h2>他住所→仕入れ先検索機能</h2>
+<form action="#" method="post">
+    <label for="address">住所の一部を入力してください:</label>
+    <input type="text" id="address" name="address">
+
+    <input type="submit" value="検索">
+</form>
+<!-- 検索結果表示部分 -->
+<div class="message">
+    <!-- 検索結果またはエラーメッセージはここに表示 -->
+</div>
+</body>
+</html>

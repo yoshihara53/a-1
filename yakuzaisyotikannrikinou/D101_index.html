@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>薬投与指示機能</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            width: 50%;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<h2>薬投与指示機能</h2>
+<form action="#" method="post">
+    <label for="medicine">薬剤名:</label>
+    <select id="medicine" name="medicine">
+        <option value="medicine1">薬剤1</option>
+        <option value="medicine2">薬剤2</option>
+        <option value="medicine3">薬剤3</option>
+    </select>
+
+    <label for="quantity">数量:</label>
+    <input type="text" id="quantity" name="quantity" placeholder="数量を入力してください">
+
+    <input type="submit" value="確認">
+</form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>薬投与指示</title>
+</head>
+<body>
+    <h1>薬投与指示</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">確認</button>
+    </form>
+    <a href="{% url 'doctor_home' %}">戻る</a>
+</body>
+</html>

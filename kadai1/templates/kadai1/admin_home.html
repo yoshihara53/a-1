@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Home</title>
+</head>
+<body>
+    <h2>Welcome to the Admin Home</h2>
+    <ul>
+        <li><a href="{% url 'logout_view' %}">ログアウト</a></li>
+        <li><a href="{% url 'register_employee' %}">従業員登録</a></li>
+        <li><a href="{% url 'shiiregyosha_list' %}">仕入先一覧</a></li>
+        <li><a href="{% url 'admin_dashboard'  %}">パスワード変更</a></li>
+    </ul>
+</body>
+</html>

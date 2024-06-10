@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>薬投与確認</title>
+</head>
+<body>
+    <h1>薬投与確認</h1>
+    <p>薬剤名: {{ medicine_data.medicine }}</p>
+    <p>数量: {{ medicine_data.quantity }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="action" value="confirm">処置確定</button>
+        <button type="submit" name="action" value="edit">薬剤選択画面へ戻る</button>
+        <button type="submit" name="action" value="delete">削除</button>
+    </form>
+</body>
+</html>

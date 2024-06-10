@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>仕入れ先情報変更確認</title>
+</head>
+<body>
+    <h1>仕入れ先情報変更確認</h1>
+    <p>仕入れ先ID: {{ supplier.shiireid }}</p>
+    <p>仕入れ先名: {{ supplier.shiiremei }}</p>
+    <p>仕入れ先住所: {{ supplier.shiireaddress }}</p>
+    <p>仕入れ先電話番号: {{ supplier.shiiretel }}</p>
+    <p>資本金: {{ supplier.shihonkin }}</p>
+    <p>納期: {{ supplier.nouki }}</p>
+    <form method="post" action="{% url 'supplier_edit' supplier.shiireid %}">
+        {% csrf_token %}
+        <button type="submit">変更</button>
+    </form>
+</body>
+</html>

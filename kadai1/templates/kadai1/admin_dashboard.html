@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>管理者ダッシュボード</title>
+</head>
+<body>
+    <h1>管理者ダッシュボード</h1>
+    <h2>ユーザー一覧</h2>
+
+    <form method="get" action="{% url 'admin_dashboard' %}">
+        <input type="text" name="query" placeholder="従業員IDを検索" value="{{ query }}">
+        <button type="submit">検索</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>名前</th>
+                <th>役割</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.empid }}</td>
+                <td>{{ employee.empfname }} {{ employee.emplname }}</td>
+                <td>{{ employee.emprole }}</td>
+                <td><a href="{% url 'admin_change_password' employee.empid %}">パスワード変更</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'admin_home' %}">ホームに戻る</a>
+</body>
+</html>

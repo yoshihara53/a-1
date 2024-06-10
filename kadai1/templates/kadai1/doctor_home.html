@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Home</title>
+</head>
+<body>
+    <h2>Welcome to the Doctor Home</h2>
+    <ul>
+        <li><a href="{% url 'logout_view' %}">ログアウト</a></li>
+        <li><a href="{% url 'change_password' %}">パスワード変更</a></li>
+        <li><a href="{% url 'doctor_patient_search' %}">患者検索</a></li>
+        <li><a href="{% url 'treatment_history' %}">処置履歴確認</a></li>
+        <li><a href="{% url 'doctor_medicine_instructions' patient_id='some_patient_id' %}">薬投与指示</a></li>
+    </ul>
+</body>
+</html>

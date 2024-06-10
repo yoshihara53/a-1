@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>仕入れ先情報変更</title>
+</head>
+<body>
+    <h1>仕入れ先情報変更</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>仕入れ先ID: {{ supplier.shiireid }}</p>
+        <p>仕入れ先名: {{ supplier.shiiremei }}</p>
+        <p>仕入れ先住所: {{ supplier.shiireaddress }}</p>
+        <p>資本金: {{ supplier.shihonkin }}</p>
+        <p>納期: {{ supplier.nouki }}</p>
+        <div>
+            <label for="id_shiiretel">仕入れ先電話番号:</label>
+            {{ form.shiiretel }}
+        </div>
+        <button type="submit">変更確認</button>
+    </form>
+            <a href="{% url 'shiiregyosha_list' %}"><button type="button" class="btn-secondary">戻る</button></a>
+</body>
+</html>

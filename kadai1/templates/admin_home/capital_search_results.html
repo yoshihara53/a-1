@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>検索結果</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>検索結果</h1>
+        <form method="post" action="{% url 'capital_search' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.capital.label_tag }}
+                {{ form.capital }}
+            </div>
+            <button type="submit">再検索</button>
+        </form>
+        <table>
+            <tr>
+                <th>仕入れ先ID</th>
+                <th>仕入れ先名</th>
+                <th>仕入れ先住所</th>
+                <th>仕入れ先電話番号</th>
+                <th>資本金</th>
+                <th>納期</th>
+                <th>操作</th>
+            </tr>
+            {% for supplier in results %}
+            <tr>
+                <td>{{ supplier.shiireid }}</td>
+                <td>{{ supplier.shiiremei }}</td>
+                <td>{{ supplier.shiireaddress }}</td>
+                <td>{{ supplier.shiiretel }}</td>
+                <td>{{ supplier.shihonkin }}</td>
+                <td>{{ supplier.nouki }}</td>
+                <td>
+                <a href="{% url 'supplier_edit' supplier.shiireid %}">変更</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+                <a href="{% url 'shiiregyosha_list' %}"><button type="button" class="btn-secondary">戻る</button></a>
+    </div>
+</body>
+</html>

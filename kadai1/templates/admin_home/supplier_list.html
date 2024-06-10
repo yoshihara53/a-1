@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>仕入れ先一覧</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>仕入れ先一覧</h1>
+    <div>
+        <a href="{% url 'capital_search' %}"><button type="button">資本金検索</button></a>
+    </div>
+    <table>
+        <tr>
+            <th>仕入れ先ID</th>
+            <th>仕入れ先名</th>
+            <th>仕入れ先住所</th>
+            <th>仕入れ先電話番号</th>
+            <th>資本金</th>
+            <th>納期</th>
+            <th>操作</th>
+        </tr>
+        {% for shiire in shiiregyosha_list %}
+        <tr>
+            <td>{{ shiire.shiireid }}</td>
+            <td>{{ shiire.shiiremei }}</td>
+            <td>{{ shiire.shiireaddress }}</td>
+            <td>{{ shiire.shiiretel }}</td>
+            <td>{{ shiire.shihonkin }}</td>
+            <td>{{ shiire.nouki }}</td>
+            <td>
+                <a href="{% url 'supplier_edit' shiire.shiireid %}">変更</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+            <a href="{% url 'admin_home' %}"><button type="button" class="btn-secondary">戻る</button></a>
+</body>
+</html>

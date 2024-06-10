@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>処置履歴確認</title>
+</head>
+<body>
+    <h1>処置履歴確認</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="patient_id">患者ID:</label>
+        <input type="text" id="patient_id" name="patient_id" required>
+        <button type="submit">確認</button>
+    </form>
+    <a href="{% url 'doctor_home' %}">メニューに戻る</a>
+</body>
+</html>

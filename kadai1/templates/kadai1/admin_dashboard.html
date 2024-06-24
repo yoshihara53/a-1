@@ -28,7 +28,7 @@
                 <td>{{ employee.empid }}</td>
                 <td>{{ employee.empfname }} {{ employee.emplname }}</td>
                 <td>{{ employee.emprole }}</td>
-                <td><a href="{% url 'admin_change_password' employee.empid %}">パスワード変更</a></td>
+                <td><a href="{{ employee.change_password_url }}">パスワード変更</a></td>
             </tr>
             {% endfor %}
         </tbody>

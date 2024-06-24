@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>患者登録</title>
+</head>
+<body>
+   <h1>患者登録</h1>
+   <form method="post">
+       {% csrf_token %}
+       <label for="patid">患者ID:</label>
+       <input type="text" id="patid" name="patid" required><br>
+       <label for="patfname">患者名:</label>
+       <input type="text" id="patfname" name="patfname" required><br>
+       <label for="patlname">患者姓:</label>
+       <input type="text" id="patlname" name="patlname" required><br>
+       <label for="hokenmei">保険証記号番号:</label>
+       <input type="text" id="hokenmei" name="hokenmei" pattern="\d{10}" title="10桁の半角数字を入力してください" required><br>
+       <label for="hokenexp">有効期限:</label>
+       <input type="date" id="hokenexp" name="hokenexp" required><br>
+       <button type="submit" name="confirm">登録確認</button>
+   </form>
+   {% if errors %}
+   <ul>
+       {% for error in errors %}
+       <li>{{ error }}</li>
+       {% endfor %}
+   </ul>
+   {% endif %}
+   <button type="button" onclick="window.location.href='{% url 'uketuke_home' %}'">戻る</button>
+</body>
+</html>

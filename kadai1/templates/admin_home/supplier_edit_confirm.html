@@ -11,7 +11,7 @@
     <p>仕入れ先電話番号: {{ supplier.shiiretel }}</p>
     <p>資本金: {{ supplier.shihonkin }}</p>
     <p>納期: {{ supplier.nouki }}</p>
-    <form method="post" action="{% url 'supplier_edit' supplier.shiireid %}">
+    <form method="post" action="{% url 'supplier_edit_confirm' supplier.pk %}">
         {% csrf_token %}
         <button type="submit">変更</button>
     </form>

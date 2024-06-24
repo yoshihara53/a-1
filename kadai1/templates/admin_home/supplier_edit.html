@@ -2,22 +2,75 @@
 <html>
 <head>
     <title>仕入れ先情報変更</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .message.error {
+            border-color: #f44336;
+            background-color: #fddddd;
+        }
+    </style>
 </head>
 <body>
-    <h1>仕入れ先情報変更</h1>
-    <form method="post">
-        {% csrf_token %}
-        <p>仕入れ先ID: {{ supplier.shiireid }}</p>
-        <p>仕入れ先名: {{ supplier.shiiremei }}</p>
-        <p>仕入れ先住所: {{ supplier.shiireaddress }}</p>
-        <p>資本金: {{ supplier.shihonkin }}</p>
-        <p>納期: {{ supplier.nouki }}</p>
-        <div>
-            <label for="id_shiiretel">仕入れ先電話番号:</label>
-            {{ form.shiiretel }}
-        </div>
-        <button type="submit">変更確認</button>
-    </form>
-            <a href="{% url 'shiiregyosha_list' %}"><button type="button" class="btn-secondary">戻る</button></a>
+    <div class="container">
+        <h1>仕入れ先情報変更</h1>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            <p>仕入れ先ID: {{ supplier.shiireid }}</p>
+            <p>仕入れ先名: {{ supplier.shiiremei }}</p>
+            <p>仕入れ先住所: {{ supplier.shiireaddress }}</p>
+            <p>資本金: {{ supplier.shihonkin }}</p>
+            <p>納期: {{ supplier.nouki }}</p>
+            <div class="form-group">
+                <label for="id_shiiretel">仕入れ先電話番号:</label>
+                {{ form.shiiretel }}
+            </div>
+            <button type="submit">変更確認</button>
+        </form>
+        <a href="{% url 'shiiregyosha_list' %}"><button type="button" class="btn-secondary">戻る</button></a>
+    </div>
 </body>
 </html>

@@ -32,11 +32,31 @@
         button:hover {
             background-color: #45a049;
         }
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .message.error {
+            border-color: #f44336;
+            background-color: #fddddd;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>資本金による仕入れ先検索</h1>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
         <form method="post">
             {% csrf_token %}
             <div class="form-group">
@@ -45,7 +65,7 @@
             </div>
             <button type="submit">検索</button>
         </form>
-                    <a href="{% url 'shiiregyosha_list' %}"><button type="button" class="btn-secondary">戻る</button></a>
+        <a href="{% url 'shiiregyosha_list' %}"><button type="button" class="btn-secondary">戻る</button></a>
     </div>
 </body>
 </html>

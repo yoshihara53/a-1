@@ -8,9 +8,16 @@
     <form method="post">
         {% csrf_token %}
         <label for="patient_id">患者ID:</label>
-        <input type="text" id="patient_id" name="patient_id" required>
+        <input type="text" id="patient_id" name="patient_id" required pattern="[1-9][0-9]*" title="有効な患者IDを入力してください。">
         <button type="submit">確認</button>
     </form>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     <a href="{% url 'doctor_home' %}">メニューに戻る</a>
 </body>
 </html>

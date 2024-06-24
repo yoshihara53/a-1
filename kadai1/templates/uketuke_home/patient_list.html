@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>患者リスト</title>
+</head>
+<body>
+   <h1>患者リスト</h1>
+   <ul>
+       {% for patient in patients %}
+           <li>
+               {{ patient.patfname }} {{ patient.patlname }}
+               <a href="{% url 'patient_insurance_edit' %}?patid={{ patient.patid }}">保険証情報を編集</a>
+           </li>
+       {% endfor %}
+   </ul>
+</body>
+</html>

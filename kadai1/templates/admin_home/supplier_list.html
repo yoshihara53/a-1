@@ -12,10 +12,30 @@
             padding: 8px;
             text-align: left;
         }
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .message.error {
+            border-color: #f44336;
+            background-color: #fddddd;
+        }
     </style>
 </head>
 <body>
     <h1>仕入れ先一覧</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
     <div>
         <a href="{% url 'capital_search' %}"><button type="button">資本金検索</button></a>
     </div>
@@ -43,6 +63,6 @@
         </tr>
         {% endfor %}
     </table>
-            <a href="{% url 'admin_home' %}"><button type="button" class="btn-secondary">戻る</button></a>
+    <a href="{% url 'admin_home' %}"><button type="button" class="btn-secondary">戻る</button></a>
 </body>
 </html>

@@ -1,17 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>薬投与確認</title>
+    <title>薬投与指示確認</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .btn-secondary {
+            background-color: #f0f0f0;
+            color: black;
+        }
+        .btn-secondary:hover {
+            background-color: #ddd;
+        }
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .message.error {
+            border-color: #f44336;
+            background-color: #fddddd;
+        }
+        .message.success {
+            border-color: #4CAF50;
+            background-color: #ddf9dd;
+        }
+    </style>
 </head>
 <body>
-    <h1>薬投与確認</h1>
-    <p>薬剤名: {{ medicine_data.medicine }}</p>
-    <p>数量: {{ medicine_data.quantity }}</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit" name="action" value="confirm">処置確定</button>
-        <button type="submit" name="action" value="edit">薬剤選択画面へ戻る</button>
-        <button type="submit" name="action" value="delete">削除</button>
-    </form>
+    <div class="container">
+        <h1>薬投与指示確認</h1>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <p>患者ID: {{ patient.patid }}</p>
+        <p>患者名: {{ patient.name }}</p>
+
+        <h2>投与指示された薬剤</h2>
+        <table>
+            <tr>
+                <th>薬剤名</th>
+                <th>数量</th>
+                <th>単位</th>
+                <th>操作</th>
+            </tr>
+            {% for prescription in prescriptions %}
+            <tr>
+                <td>{{ prescription.medicinename }}</td>
+                <td>{{ prescription.quantity }}</td>
+                <td>{{ prescription.unit }}</td>
+                <td>
+                    <form method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" name="delete" value="{{ forloop.counter0 }}">削除</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <form method="post" action="{% url 'process_confirmed' %}">
+            {% csrf_token %}
+            <input type="hidden" name="patient_id" value="{{ patient.patid }}">
+            <button type="submit">確定する</button>
+        </form>
+        <button type="button" class="btn-secondary" onclick="history.back()">戻る</button>
+    </div>
 </body>
 </html>
